@@ -1,6 +1,7 @@
 package me.dio;
 
 import me.dio.facade.Facade;
+import me.dio.implementacao.*;
 import me.dio.singleton.SingletonEager;
 import me.dio.singleton.SingletonLazy;
 import me.dio.singleton.SingletonLazyHolder;
@@ -49,5 +50,24 @@ public class Test {
 
         Facade facade = new Facade();
         facade.migrarCliente("Lígia", "00000000");
+
+        //Implementação - strategy
+
+        Atitude alegre = new AtitudeAlegre();
+        Atitude desconfiada = new AtitudeDesconfiada();
+        Atitude triste = new AtitudeTriste();
+
+        Cachorro cachorro = new Cachorro();
+        cachorro.setAtitude(alegre);
+        cachorro.latir();
+        cachorro.latir();
+        cachorro.latir();
+
+        cachorro.setAtitude(desconfiada);
+        cachorro.latir();
+        cachorro.latir();
+
+        cachorro.setAtitude(triste);
+        cachorro.latir();
     }
 }
